@@ -1,0 +1,31 @@
+[SLIDE 1]
+Selamat Pagi, Hari ini kelompok kami akan mempresentasikan projek yang sudah kami buat.
+
+[SLIDE 2]
+Tema projek yang kami buat adalah Program Untuk Mendeteksi Kanker Payudara. Singkatnya, program yang kami buat akan mengklasifikasikan apakah data - data yang ada berpotensi untuk masuk dalam kategori benign (jinak) atau malignant (ganas). Untuk melakukannya, kami memutuskan untuk menggunakan algoritma berdasarkan case based reasoning, yaitu adalah Naive Bayes. Alasannya sederhana, karena Naive Bayes sendiri merupakan algoritma yang cukup sederhana dan efektif.
+
+[SLIDE 3]
+Kemudian dataset. Dataset yang kami ambil adalah dari uri ml repository. Kami ambil dari sebuah dataset yang berisi pengklasifikasian kanker ganas atau jinak.
+
+[SLIDE 4]
+Oke, jadi dataset kami mempunyai sekitar 700 an record. Kami menggunakan 80 persennya untuk melakukan training dan 20 persennya sebagai testing data. Dataset kami mempunyai 9 fitur dan 1 class nya adalah "Beningn" atau "Malignant" 
+
+
+
+[SLIDE 5]
+
+Dataset kami berasal dari biopsy dari sel - sel pasien. Sel - sel ini kemudian diteliti 9 fiturnya: 
+
+- Clump_thickness = yaitu ketebalan antara sel - sel yang ada. biasanya, sel - sel yang normal membentuk monolayer, alias sel - sel itu akan membentuk suatu lapisan. Sebaliknya, sel - sel yang mengidap kanker biasanya bertumpuk - tumpuk satu sama lain.
+- Uniformity_of_cell_size = sel - sel yang normal biasanya memiliki ukuran yang kebanyakan sama dan sebaliknya
+- Uniformity_of_cell_shape = sel - sel yang normal biasanya memiliki bentuk yang kebanyakan sama dan sebaliknya
+- Marginal_adhesion = Marginal adhesion adalah kerapatan antara sel - sel yang ada. Sel - sel kanker cenderung mempunyai kerapatan yang lebih rendah, dan oleh karena itu bisa menginvasi sel yang lainnya.
+- Single_epithelial_cell_size = sel yang terlalu besar bisa menjadi pertanda kanker
+- Bare_nuclei = bare nuclei adalah sel yang sedikit terbungkus oleh lapisan luar sel, seperti mungkin sitoplasma. Sel - sel ini kerap ada pada sel kanker.
+- Bland_chromatin = kromatin semakin bentuknya tidak aneh aneh, maka semakin normal pula sel tersebut
+- Normal_nucleoli = nucleoi pada sel normal cenderung kecil
+- Mitoses
+
+
+[SLIDE 6]
+(demo program)

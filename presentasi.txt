@@ -1,0 +1,38 @@
+
+[SLIDE 1] PERKENALAN DIRI
+71210689	Gian Pradipta Gunawan
+71210679	Farrel Ballard Thomas
+71210759	Arviko Praditya Ady Purwobaskoro
+
+[Slide 2] TOPIK
+Pendiagnosisan Kanker Payudara Dengan Menggunakan Algoritma Naive Bayes
+
+[SLIDE 3] DATASET
+Dataset kita ambil daripada repositori  
+uci edu repository for ml.
+link: https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original
+
+[SLIDE 4] DESKRIPSI DATASET
+- Berisi 9 fitur
+- Mempunyai target class antara "Benign" (jinak) atau "Malignant" (Ganas)
+- Mempunyai 699 record (80% untuk training, sisanya untuk testing)
+
+[SLIDE 5] FITUR DATASET
+- Clump_thickness
+- Uniformity_of_cell_size
+- Uniformity_of_cell_shape
+- Marginal_adhesion
+- Single_epithelial_cell_size
+- Bare_nuclei
+- Bland_chromatin
+- Normal_nucleoli
+- Mitoses
+(ambil gambar dari sini: https://cdn.the-scientist.com/assets/articleNo/71434/iImg/51271/62233-9-l.jpg)
+
+
+[SLIDE 6] ALUR PROGRAM YANG DIBUAT
+Program yang dibuat adalah program Klasifikasi menggunakan algoritma Naive Bayes
+(kasih gambar ini: https://miro.medium.com/v2/resize:fit:720/format:webp/0*9Yio7Jry0iJ8EIPb.png)
+
+[SLIDE 7] END
+Sekian dan terima kasih
