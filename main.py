@@ -14,13 +14,13 @@ def get_dataset() -> list:
         kamus_x = json.loads(data)
         return kamus_x
 
-def seperate_based_on_class(data: list) -> list:
+def seperate_based_on_class(data: list, target: str) -> list:
     class_seperated : dict = {}
     for x in data:
-        if x['class'] not in class_seperated:
-            class_seperated[x['class']] = [x]
+        if x[target] not in class_seperated:
+            class_seperated[x[target]] = [x]
         else:
-            class_seperated[x['class']].append(x)
+            class_seperated[x[target]].append(x)
     return class_seperated
 
 def get_probability(dataset : dict, feature : str, value : int =None, given : int=None) -> float:
@@ -67,7 +67,7 @@ def test_accuracy(data) -> float:
         random_index = random.randint(0, len(dataset) - 1)
         popped = dataset.pop(random_index)
         test_data.append(popped)
-    seperated_dataset : list = seperate_based_on_class(dataset)
+    seperated_dataset : list = seperate_based_on_class(dataset, "class")
     correct_result = 0
     for case in test_data:
         expected_value : int = case['class']
@@ -90,7 +90,7 @@ def test_precision(data) -> float:
         random_index = random.randint(0, len(dataset) - 1)
         popped = dataset.pop(random_index)
         test_data.append(popped)
-    seperated_dataset : list = seperate_based_on_class(dataset)
+    seperated_dataset : list = seperate_based_on_class(dataset, "class")
     true_positives = 0
     false_positives = 0
     for case in test_data:
@@ -113,20 +113,20 @@ def main() -> None:
     dataset : list = get_dataset()
     print(f'Accuracy: {round(test_accuracy(dataset) * 100, 2)}%')
     print(f'Precision: {round(test_precision(dataset) * 100, 2)}%')
-    # seperated_dataset : list = seperate_based_on_class(dataset)
+    seperated_dataset : list = seperate_based_on_class(dataset, "class")
 
-    # while True:
-    #     new_case = generate_new_case()
-    #     print_cantik(new_case)
-    #     result = do_naive_bayes(seperated_dataset, new_case)
-    #     hasil_akhir = ""
-    #     if result[2] <= result[4]:
-    #         hasil_akhir = ("Malignant")
-    #     else:
-    #         hasil_akhir = ("Benign")
-    #     print(hasil_akhir)
-    #     print()
-    #     if hasil_akhir == "Benign":
-    #         break
+    while True:
+        new_case = generate_new_case()
+        print_cantik(new_case)
+        result = do_naive_bayes(seperated_dataset, new_case)
+        hasil_akhir = ""
+        if result[2] <= result[4]:
+            hasil_akhir = ("Malignant")
+        else:
+            hasil_akhir = ("Benign")
+        print(hasil_akhir)
+        print()
+        if hasil_akhir == "Benign":
+            break
 if __name__ == "__main__":
     main()
