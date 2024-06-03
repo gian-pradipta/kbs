@@ -15,7 +15,6 @@ def get_dataset() -> list:
         kamus_x = json.loads(data)
         return kamus_x
 
-
 def generate_new_case() -> dict :
     case_template = {'Clump_thickness': 2, 'Uniformity_of_cell_size': 1, 'Uniformity_of_cell_shape': 1, 'Marginal_adhesion': 1, 'Single_epithelial_cell_size': 2, 'Bare_nuclei': 1.0, 'Bland_chromatin': 1, 'Normal_nucleoli': 1, 'Mitoses': 1, 'class': 2}
     for key in case_template.keys():
@@ -78,7 +77,7 @@ def main() -> None:
     # print(f'Accuracy: {round(test_accuracy(dataset) * 100, 2)}%')
     # print(f'Precision: {round(test_precision(dataset) * 100, 2)}%')
     seperated_dataset : list = seperate_based_on_class(dataset, "class")
-    
+
 
 if __name__ == "__main__":
     main()

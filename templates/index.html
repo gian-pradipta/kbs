@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br><br>
+    <h1 style="text-align: center;">Silahkan masukkan hasil Biopsi Anda!</h1>
+    <div style="margin-left: 40%; border: 1px solid black; width: fit-content;">
+        <table id="new_case">
+        </table>
+        <button onclick="postData(event)" style="margin-left: 35%;">
+            Submit!
+        </button>
+    </div>
+
+    <div style="margin-left: 40%;text-align: center; width: fit-content;" id="result">
+
+    </div>
+    <script>
+        let submittedData = {'Clump_thickness': 1, 'Uniformity_of_cell_size': 1, 'Uniformity_of_cell_shape': 1, 'Marginal_adhesion': 1, 'Single_epithelial_cell_size': 1, 'Bare_nuclei': 1, 'Bland_chromatin': 1, 'Normal_nucleoli': 1, 'Mitoses': 1};
+        function validateNumber(e) {
+            const val = e.target.value;
+            if (val < 1)
+                e.target.value = 1;
+            if (val > 10)
+                e.target.value = 10
+        }
+
+        function processInput(e) {
+            validateNumber(e)
+            const name = e.target.name;
+            submittedData[name] = parseInt(e.target.value);
+        }
+
+        async function postData(e) {
+            const data = await fetch("/post", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(submittedData)
+            }).then(Response => Response.json())
+            const result = document.getElementById("result");
+            if (data[2] < data[4]) {
+                result.innerHTML = `Result: <br><h1>Malignant</h1>
+                        <table>
+                            <tr>
+                                <td>Benign: </td>
+                                <td>${data[2] * 100}%</td>    
+                            </tr>
+                            <tr>
+                                <td>Malignant: </td>
+                                <td>${data[4] * 100}%</td>    
+                            </tr>
+                        </table>
+                `;
+            }
+            else {
+                result.innerHTML = `Result: <br><h1>Benign</h1>
+                        <table>
+                            <tr>
+                                <td>Benign: </td>
+                                <td>${data[2] * 100}%</td>    
+                            </tr>
+                            <tr>
+                                <td>Malignant: </td>
+                                <td>${data[4] * 100}%</td>    
+                            </tr>
+                        </table>
+                `;
+            }
+            console.log(data)
+
+        }
+
+        function main() {
+            const table = document.getElementById("new_case");
+            const data =     {'Clump_thickness': 2, 'Uniformity_of_cell_size': 1, 'Uniformity_of_cell_shape': 1, 'Marginal_adhesion': 1, 'Single_epithelial_cell_size': 2, 'Bare_nuclei': 1.0, 'Bland_chromatin': 1, 'Normal_nucleoli': 1, 'Mitoses': 1};
+            let hasil = "";
+            for (const key in data) {
+                let row = `<tr>
+                            <td>${key}</td>
+                            <td><input onchange="processInput(event)" type=number min="1" max="10" name="${key}" value=1></td>
+                         </tr>`;
+                hasil += row;
+            }
+            table.innerHTML = hasil;
+        }
+        main();
+
+    </script>
+</body>
+</html>
