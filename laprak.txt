@@ -1,0 +1,13 @@
+Struktur Laporan:
+1. Pendahuluan (berisi latar belakang masalah, solusi, metode yang diterapkan)
+    kanker payudara adalah kanker yang paling banyak berkontribusi terhadap kematian wanita. Organisasi Kesehatan Dunia melaporkan. Bahwa setiap tahun sekitar 1 juta wanita didiagnosis menderita kanker payudara, dan setengah dari mereka akhirnya meninggal, sering kali karena deteksi dan
+    penanganan yang terlambat. Oleh karena itu, salah 
+2. Literature Review (dapat diambil dari Tes kecil)
+    Ambil dari test kecil
+    
+3. Metode Pengembangan Sistem
+4. Hasil dan pembahasan
+    
+5. Kesimpulan dan keterbatasan sistem
+6. Lampiran (data set atau Knowledge Based lengkap, source code, dll)
+7. Dafpus
