@@ -11,6 +11,8 @@ def print_cantik(hashmap) -> None:
 
 def main() -> None:
     dataset : list = get_dataset()
+    data = seperate_based_on_class(dataset, "class")
+    print_cantik(do_naive_bayes(data, generate_new_case()))
     print(f'Accuracy: {round(test_accuracy(dataset) * 100, 2)}%')
     print(f'Precision: {round(test_precision(dataset) * 100, 2)}%')
 

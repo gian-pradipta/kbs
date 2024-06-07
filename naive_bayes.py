@@ -1,12 +1,3 @@
-def seperate_based_on_class(data: list, target: str) -> list:
-    class_seperated : dict = {}
-    for x in data:
-        if x[target] not in class_seperated:
-            class_seperated[x[target]] = [x]
-        else:
-            class_seperated[x[target]].append(x)
-    return class_seperated
-
 def get_probability(dataset : dict, feature : str, value=None, given=None) -> float:
     total = 1
     len_all = 0

@@ -1,5 +1,6 @@
 import random
 from naive_bayes import *
+from data_provider import seperate_based_on_class
 import copy
 
 def test_accuracy(data) -> float:
